@@ -4,6 +4,7 @@ import JokeCard from "./JokeCard";
 import SubscriptionForm from "./SubscriptionForm";
 import ThemeToggle from "./ThemeToggle";
 import { Joke, fetchRandomJoke } from "@/lib/database";
+import SEOComponent from "./SEOComponent";
 
 const Home: React.FC = () => {
   const [currentJoke, setCurrentJoke] = useState<Joke | null>(null);
@@ -75,6 +76,7 @@ const Home: React.FC = () => {
             isSubmitting={isSubscribing}
           />
         </motion.div>
+        <SEOComponent />
       </main>
 
       {/* Footer */}

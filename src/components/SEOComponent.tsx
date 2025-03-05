@@ -50,8 +50,8 @@ const DadJokesPage: React.FC = () => {
         <ul className="list-none pl-0">
           {[
             "Visit our website (you're already here, good job!)",
-            'Click the "Click for a Dad Joke!" button',
             "Enjoy the joke and share it with friends and family",
+            'Want a fresh joke? Click the "Next Joke" button',
             "Repeat for endless laughter and groans",
           ].map((item, index) => (
             <li

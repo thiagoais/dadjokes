@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { fetchRandomJoke, Joke } from "@/lib/database";
 import { useToast } from "@/components/ui/use-toast";
+import ShareButtons from "./ShareButtons";
 
 interface JokeCardProps {
   initialJoke?: Joke;
@@ -93,7 +94,7 @@ const JokeCard = ({ initialJoke, onNextJoke }: JokeCardProps) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="min-h-[200px] flex items-center justify-center"
+            className="min-h-[200px] flex flex-col items-center justify-center"
           >
             {isLoading ? (
               <div className="text-center">
@@ -109,10 +110,13 @@ const JokeCard = ({ initialJoke, onNextJoke }: JokeCardProps) => {
                 </p>
               </div>
             ) : (
-              <p className="text-xl md:text-2xl text-center font-medium">
-                {joke?.content ||
-                  "Why was the joke file empty? Because the punchline is still loading!"}
-              </p>
+              <>
+                <p className="text-xl md:text-2xl text-center font-medium mb-6">
+                  {joke?.content ||
+                    "Why was the joke file empty? Because the punchline is still loading!"}
+                </p>
+                {joke && <ShareButtons joke={joke.content} className="mt-4" />}
+              </>
             )}
           </motion.div>
         </AnimatePresence>
